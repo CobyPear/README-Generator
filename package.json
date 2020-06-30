@@ -1,0 +1,23 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "CLI to generate READMEs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CobyPear/README-Generator.git"
+  },
+  "keywords": [
+    "README",
+    "generator"
+  ],
+  "author": "CobyPear",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CobyPear/README-Generator/issues"
+  },
+  "homepage": "https://github.com/CobyPear/README-Generator#readme"
+}
