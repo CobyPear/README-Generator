@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/CobyPear/README-Generator/issues"
   },
-  "homepage": "https://github.com/CobyPear/README-Generator#readme"
+  "homepage": "https://github.com/CobyPear/README-Generator#readme",
+  "dependencies": {
+    "inquirer": "^7.2.0"
+  }
 }
