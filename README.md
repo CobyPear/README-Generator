@@ -4,7 +4,7 @@
 
  ## Description 
  
- This CLI application can be used to generate your README.md at lightning speed! The README you are now reading was made using this application! :party:
+ This CLI application can be used to generate your README.md at lightning speed :zap: The README you are now reading was made using this application! :tada:
 
  ## Table Of Contents 
 

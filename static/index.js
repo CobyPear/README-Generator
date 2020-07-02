@@ -86,7 +86,7 @@ function init() {
 
                 const tableOfContents = "- [Installation Instructions](#install) \n\n - [Usage Info](#usage) \n\n - [Contribution Guidelines](#contribution) \n\n - [Test Instructions](#test) \n\n - [Questions](#questions)";
 
-            return asyncFileWrite('../README.md', `# ${title} \n\n ${badge} \n\n ## Description \n\n ${description} \n\n ## Table Of Contents \n\n ${tableOfContents} \n\n ${installationLink} \n\n ${installation} \n\n ${usageLink} \n\n ${usage} \n\n ${contributionLink} \n\n  ${contribution} \n\n ${testLink} \n\n ${test} \n\n ${questionsLink} \n\n ${githubLink} \n\n ### if you have a question, I can be reached at ${email}`);
+            return asyncFileWrite('README.md', `# ${title} \n\n ${badge} \n\n ## Description \n\n ${description} \n\n ## Table Of Contents \n\n ${tableOfContents} \n\n ${installationLink} \n\n ${installation} \n\n ${usageLink} \n\n ${usage} \n\n ${contributionLink} \n\n  ${contribution} \n\n ${testLink} \n\n ${test} \n\n ${questionsLink} \n\n ${githubLink} \n\n ### if you have a question, I can be reached at ${email}`);
         })
         .catch((err) => console.error);
 
