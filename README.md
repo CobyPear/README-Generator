@@ -6,7 +6,7 @@
  
  This CLI application can be used to generate your README.md at lightning speed :zap: The README you are now reading was made using this application! :tada:
  
- [![Check out a demo here](https://imgur.com/gallery/LAByn52)](https://drive.google.com/file/d/1h7C5GRbCJgZYOQNJSV7NOQ4OXi-U439H/view?usp=sharing)
+ [![Check out a demo here](https://i.imgur.com/Zsb9CQp.png)](https://drive.google.com/file/d/1h7C5GRbCJgZYOQNJSV7NOQ4OXi-U439H/view?usp=sharing)
 
  ## Table Of Contents 
 
