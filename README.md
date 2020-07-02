@@ -5,6 +5,8 @@
  ## Description 
  
  This CLI application can be used to generate your README.md at lightning speed :zap: The README you are now reading was made using this application! :tada:
+ 
+ ![Check out a demo here](https://drive.google.com/file/d/1h7C5GRbCJgZYOQNJSV7NOQ4OXi-U439H/view?usp=sharing)
 
  ## Table Of Contents 
 
@@ -20,19 +22,19 @@
 
  ## <a name='install'>Installation Instructions</a> 
 
- npm i 
+n/a
 
  ## <a name='usage'>Usage Info</a> 
 
- npm run start 
+n/a
 
  ## <a name='contribution'>Contribution Guidelines</a> 
 
-  Don't break it plz :] 
+n/a
 
  ## <a name='test'>Test Instructions</a> 
 
- npm run test 
+n/a
 
  ## <a name='questions'>Questions/Contact</a> 
 
