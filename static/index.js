@@ -32,87 +32,21 @@ THEN I am taken to the corresponding section of the README
 
 */
 
-const generate = require('./generateMarkdown');
+const questions = require('./questions');
 const fs = require('fs');
 const util = require('util');
 const inquirer = require('inquirer');
-const { table } = require('console');
-
-const asyncFileAppend = util.promisify(fs.appendFile)
+// const { table } = require('console');
 
 
+const asyncFileAppend = util.promisify(fs.writeFile)
 
-// array of questions for user
-const questions = [
-    {
-        type: "input",
-        name: "title",
-        message: "What is the name of your project?"
-    },
-    {
-        type: "input",
-        name: "description",
-        message: "How would you describe your application?",
-        default: "This is the best application!"
-    },
-    {
-        type: "input",
-        name: "installation",
-        message: "How is your application installed?",
-        default: "npm i"
-    },
-    {
-        type: "input",
-        name: "usage",
-        message: "How is your application to be used?",
-        default: "Making the world a better place"
-    },
-    {
-        type: "input",
-        name: "contribution",
-        message: "Are there any Contribution Guidelines"
-    },
-    {
-        type: "input",
-        name: "tests",
-        message: "What is the command used to test your application?",
-        default: "npm test"
-    },
-    {
-        type: "list",
-        name: "license",
-        message: "Choose a license: ",
-        default: "MIT",
-        choices: [
-
-            "Apache-2.0",
-            "BSD 2-Clause",
-            "BSD 3-Clause",
-            "EPL-2.0",
-            "GPL-2.0",
-            "GPL-3.0",
-            "MIT",
-            "MPL-2.0",
-            new inquirer.Separator()
-        ]
-    },
-    {
-        type: "input",
-        name: "username",
-        message: "What is your GitHub username?"
-    },
-    {
-        type: "input",
-        name: "email",
-        message: "What is your email address?"
-    }
-];
 
 // function to write README file
-function writeToFile(fileName, data) {
+// function writeToFile(fileName, data) {
 
-    fs.appendFile(fileName, JSON.stringify(data), (err) => console.error);
-}
+//     fs.appendFile(fileName, JSON.stringify(data), (err) => console.error);
+// }
 
 // function to initialize program
 function init() {
@@ -150,15 +84,15 @@ function init() {
  
                 };
 
-                const installationLink = "## <a name='install'>Installation Instructions</a>";
-                const usageLink = "## <a name='usage'>Usage Info</a>";
-                const contributionLink = "## <a name='contribution'>Contribution Guidelines</a>";
-                const testLink = "## <a name='test'>Test Instructions</a>";
-                const questionsLink = "## <a name='questions'>Questions/Contact</a>";
+                const installationLink = "## " + "<a name='install'>Installation Instructions</a>";
+                const usageLink = "## " + "<a name='usage'>Usage Info</a>";
+                const contributionLink = "## " + "<a name='contribution'>Contribution Guidelines</a>";
+                const testLink = "## " + "<a name='test'>Test Instructions</a>";
+                const questionsLink = "## " + "<a name='questions'>Questions/Contact</a>";
 
-                const tableOfContents = "[Installation Instructions](#install) \n\n [Usage Info](#usage) \n\n [Contribution Guidelines](#contribution) \n\n [Test Instructions](#test) \n\n [Questions](#questions)";
+                const tableOfContents = "- [Installation Instructions](#install) \n\n - [Usage Info](#usage) \n\n - [Contribution Guidelines](#contribution) \n\n - [Test Instructions](#test) \n\n - [Questions](#questions)";
 
-            return asyncFileAppend('README.md', `# ${title} \n\n ${badge} \n\n ## Description \n \n ${description} \n\n ## Table Of Contents ${tableOfContents}`);
+            return asyncFileAppend('README.md', `# ${title} \n\n ${badge} \n\n ## Description \n \n ${description} \n\n ## Table Of Contents \n\n ${tableOfContents} \n\n ${installationLink} \n\n ${usageLink} \n\n ${contributionLink} \n\n ${testLink} \n\n ${questionsLink}`);
         })
 
 }
