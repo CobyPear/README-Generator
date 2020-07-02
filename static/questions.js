@@ -1,8 +1,3 @@
-// // function to generate markdown for README
-// function generateMarkdown(data) {
-//     return `# ${data.title}`;
-//   }
-
 const inquirer = require('inquirer');
   
   // array of questions for user

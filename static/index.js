@@ -33,64 +33,17 @@ THEN I am taken to the corresponding section of the README
 */
 
 const questions = require('./questions');
-const fs = require('fs');
-const util = require('util');
 const inquirer = require('inquirer');
-// const { table } = require('console');
+const generateReadme = require('./generateReadme');
 
 
-const asyncFileWrite = util.promisify(fs.writeFile);
-
-// function to initialize program
 function init() {
 
     inquirer
         .prompt(questions)
-        .then(({ title, license, description, installation, usage, contribution, test, username, email }) => {
-            let badge = '';
-
-            switch (license) {
-                case "Apache-2.0":
-                    badge = "![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)";
-                    break;
-                case "BSD 2-Clause":
-                    badge = "![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)";
-                    break;
-                case "BSD 3-Clause":
-                    badge = "![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)";
-                    break;
-                case "EPL-2.0":
-                    badge = "![License](https://img.shields.io/badge/License-EPL%202.0-red.svg)";
-                    break;
-                case "GPL-2.0":
-                    badge = "![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)";
-                    break;
-                case "GPL-3.0":
-                    badge = "![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)";
-                    break;
-                case "MIT":
-                    badge = "![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)";
-                    break;
-                case "MPL-2.0":
-                    badge = "![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)";
-                    break;
- 
-                };
-
-                const installationLink = "## " + "<a name='install'>Installation Instructions</a>";
-                const usageLink = "## " + "<a name='usage'>Usage Info</a>";
-                const contributionLink = "## " + "<a name='contribution'>Contribution Guidelines</a>";
-                const testLink = "## " + "<a name='test'>Test Instructions</a>";
-                const questionsLink = "## " + "<a name='questions'>Questions/Contact</a>";
-                const githubLink = `### [${username}'s GitHub Profile](https://github.com/${username})`
-
-                const tableOfContents = "- [Installation Instructions](#install) \n\n - [Usage Info](#usage) \n\n - [Contribution Guidelines](#contribution) \n\n - [Test Instructions](#test) \n\n - [Questions](#questions)";
-
-            return asyncFileWrite('README.md', `# ${title} \n\n ${badge} \n\n ## Description \n\n ${description} \n\n ## Table Of Contents \n\n ${tableOfContents} \n\n ${installationLink} \n\n ${installation} \n\n ${usageLink} \n\n ${usage} \n\n ${contributionLink} \n\n  ${contribution} \n\n ${testLink} \n\n ${test} \n\n ${questionsLink} \n\n ${githubLink} \n\n ### if you have a question, I can be reached at ${email}`);
-        })
-        .catch((err) => console.error);
-
-};
+        .then((response) =>  generateReadme(response))
+        .catch((err) => console.error(err))
+}
 
 // function call to initialize program
 init();
