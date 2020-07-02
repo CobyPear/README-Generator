@@ -39,21 +39,14 @@ const inquirer = require('inquirer');
 // const { table } = require('console');
 
 
-const asyncFileAppend = util.promisify(fs.writeFile)
-
-
-// function to write README file
-// function writeToFile(fileName, data) {
-
-//     fs.appendFile(fileName, JSON.stringify(data), (err) => console.error);
-// }
+const asyncFileWrite = util.promisify(fs.writeFile);
 
 // function to initialize program
 function init() {
 
     inquirer
         .prompt(questions)
-        .then(({ title, license, description }) => {
+        .then(({ title, license, description, installation, usage, contribution, test, username, email }) => {
             let badge = '';
 
             switch (license) {
@@ -89,14 +82,15 @@ function init() {
                 const contributionLink = "## " + "<a name='contribution'>Contribution Guidelines</a>";
                 const testLink = "## " + "<a name='test'>Test Instructions</a>";
                 const questionsLink = "## " + "<a name='questions'>Questions/Contact</a>";
+                const githubLink = `### [${username}'s GitHub Profile](https://github.com/${username})`
 
                 const tableOfContents = "- [Installation Instructions](#install) \n\n - [Usage Info](#usage) \n\n - [Contribution Guidelines](#contribution) \n\n - [Test Instructions](#test) \n\n - [Questions](#questions)";
 
-            return asyncFileAppend('README.md', `# ${title} \n\n ${badge} \n\n ## Description \n \n ${description} \n\n ## Table Of Contents \n\n ${tableOfContents} \n\n ${installationLink} \n\n ${usageLink} \n\n ${contributionLink} \n\n ${testLink} \n\n ${questionsLink}`);
+            return asyncFileWrite('../README.md', `# ${title} \n\n ${badge} \n\n ## Description \n\n ${description} \n\n ## Table Of Contents \n\n ${tableOfContents} \n\n ${installationLink} \n\n ${installation} \n\n ${usageLink} \n\n ${usage} \n\n ${contributionLink} \n\n  ${contribution} \n\n ${testLink} \n\n ${test} \n\n ${questionsLink} \n\n ${githubLink} \n\n ### if you have a question, I can be reached at ${email}`);
         })
+        .catch((err) => console.error);
 
-}
+};
 
 // function call to initialize program
 init();
-
